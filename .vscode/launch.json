@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Evidencia",
+            "request": "launch",
+            "mainClass": "com.sena.articulos.Principal",
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Probar conexión JDBC",
+            "request": "launch",
+            "mainClass": "com.sena.articulos.PruebaConexion",
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
