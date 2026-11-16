@@ -56,6 +56,21 @@ public final class ArticuloDAO {
         return articulos;
     }
 
+    public int contar() throws SQLException {
+    String sql = "SELECT COUNT(*) FROM articulo";
+
+    try (Connection conexion = ConexionBD.obtenerConexion();
+         PreparedStatement sentencia = conexion.prepareStatement(sql);
+         ResultSet resultados = sentencia.executeQuery()) {
+
+        if (resultados.next()) {
+            return resultados.getInt(1);
+        }
+    }
+
+        return 0;
+}
+
     public Optional<Articulo> buscarPorId(int id) throws SQLException {
         String sql = "SELECT id, nombre, precio, descripcion FROM articulo WHERE id = ?";
 
@@ -72,6 +87,27 @@ public final class ArticuloDAO {
         }
 
         return Optional.empty();
+    }
+
+    public List<Articulo> buscarPorNombre(String nombre) throws SQLException {
+    String sql = "SELECT id, nombre, precio, descripcion "
+            + "FROM articulo WHERE nombre LIKE ? ORDER BY nombre";
+
+    List<Articulo> articulos = new ArrayList<>();
+
+    try (Connection conexion = ConexionBD.obtenerConexion();
+         PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+
+        sentencia.setString(1, "%" + nombre + "%");
+
+        try (ResultSet resultados = sentencia.executeQuery()) {
+            while (resultados.next()) {
+                articulos.add(convertirEnArticulo(resultados));
+            }
+        }
+    }
+
+        return articulos;
     }
 
     public boolean actualizar(Articulo articulo) throws SQLException {
