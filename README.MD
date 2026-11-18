@@ -59,7 +59,7 @@ Crear el archivo .env en la raíz del proyecto y definir las variables de entorn
 
 Verificar que la clase [`ConexionBD.java`](./src/main/java/com/sena/articulos/config/ConexionBD.java) utilice las variables de entorno definidas en el archivo .env para establecer la conexión.
 
-Ejecutar la clase [`PruebaConexionBD.java`](./src/main/java/com/sena/articulos/PruebaConexionBD.java) en el entorno de desarrollo para comprobar que la conexión con la base de datos se establece correctamente.
+Ejecutar la clase [`PruebaConexion.java`](./src/main/java/com/sena/articulos/PruebaConexion.java) en el entorno de desarrollo para comprobar que la conexión con la base de datos se establece correctamente.
 
 4.4. Ejecución del módulo
 
