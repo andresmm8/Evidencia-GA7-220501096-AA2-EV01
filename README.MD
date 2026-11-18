@@ -22,7 +22,7 @@ El módulo permite realizar las siguientes operaciones sobre la entidad Artícul
 
 6.Actualizar la información de un artículo.
 
-Eliminar artículos.
+7.Eliminar artículos.
 
 Para consultar las pruebas de las funcionalidades se sugiere consultar la carpeta [Pruebas](./Pruebas/)
 
@@ -43,10 +43,9 @@ Antes de ejecutar el módulo, es necesario contar con las siguientes herramienta
 
 4.2. Preparación de la base de datos
 
-- Iniciar el servidor SQL.
+- Iniciar el servidor MySQL.
 
-- Ejecutar el script [`01_crear_articulos.sql`](./sql/01_crear_articulos.sql) en el gestor de bases de datos para crear la base de datos evidencia y la tabla articulo.
-
+- Ejecutar el script [`crear_articulos.sql`](./sql/crear_articulos.sql) en el gestor de bases de datos para crear la base de datos "evidencia" y la tabla "articulo".
 
 4.3. Configuración de la conexión
 
@@ -58,14 +57,14 @@ Crear el archivo .env en la raíz del proyecto y definir las variables de entorn
 
 - DB_PASSWORD: contraseña del usuario de MySQL.
 
-Verificar que la clase ConexionBD.java, ubicada en el paquete config, utilice las variables de entorno definidas en el archivo .env para establecer la conexión.
+Verificar que la clase [`ConexionBD.java`](./src/main/java/com/sena/articulos/config/ConexionBD.java) utilice las variables de entorno definidas en el archivo .env para establecer la conexión.
 
-Ejecutar la clase PruebaConexion.java, ubicada en el paquete principal com.sena.articulos, para comprobar que la conexión con la base de datos se establece correctamente.
+Ejecutar la clase [`PruebaConexionBD.java`](./src/main/java/com/sena/articulos/PruebaConexionBD.java) en el entorno de desarrollo para comprobar que la conexión con la base de datos se establece correctamente.
 
 4.4. Ejecución del módulo
 
-Desde la raíz del repositorio, ejecutar el siguiente comando para compilar el proyecto:
+Desde la raíz del repositorio, ejecutar el siguiente comando en la terminal para compilar el proyecto:
 
 mvn clean package
 
-Posteriormente, ejecutar la clase principal com.sena.articulos.Principal desde el entorno de desarrollo.
+Posteriormente, ejecutar la clase [`Principal.java`](./src/main/java/com/sena/articulos/Principal.java) desde el entorno de desarrollo.
